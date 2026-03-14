@@ -1,7 +1,7 @@
 # Warthogs
 Warthogs are unique animals for your Minecraft world—they add variety to the wildlife and give you new food options. 🐗
 
-These animals spawn in Plains and Jungle biomes. They are tricky to catch and highly aggressive — approach with caution!
+These animals spawn in Plains and Savanna biomes. They are tricky to catch and highly aggressive — approach with caution!
 
 When killed, they drop warthog meat (which can be cooked), bones, and leather.
 You can breed them on your farm, but you'll need both a male (slightly larger) and a female. Feed and breed them using beetroots and apples — all offspring will be female.
