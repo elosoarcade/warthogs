@@ -6,7 +6,7 @@ These animals spawn in Plains and Jungle biomes. They are tricky to catch and hi
 When killed, they drop warthog meat (which can be cooked), bones, and leather.
 You can breed them on your farm, but you'll need both a male (slightly larger) and a female. Feed and breed them using beetroots and apples — all offspring will be female.
 
-⚔️ Male: Attacks players on sight within 12 blocks. If hit, he flees at high speed — you'll need a bow for a second shot. Carrying beetroots or apples in hand will make him follow you peacefully.
+Male: Attacks players on sight within 12 blocks. If hit, he flees at high speed — you'll need a bow for a second shot. Carrying beetroots or apples in hand will make him follow you peacefully.
 
 Female: Normally flees from players from a great distance. However, if calves are nearby she will aggressively defend them. Keep apples in hand to handle her safely on the farm.
 
