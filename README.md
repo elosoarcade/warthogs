@@ -13,3 +13,5 @@ Female: Normally flees from players from a great distance. However, if calves ar
 ❤️ Health: 20 | ⚔️ Attack: 2 (male) / 4 (female defending) | ✨ EXP: 1-3
 
 This addon is optimized to run effectively on Realms and dedicated servers with minimal hardware resource consumption and its available in english and español. 🇬🇧 🇲🇽
+
+![Wharthog Minecraft Bedrock Add-on](![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg))
