@@ -1,0 +1,8 @@
+entity.eoa:warthog.name=Warthog
+entity.eoa:sow.name=Sow
+item.spawn_egg.entity.eoa:warthog.name=Spawn Warthog
+item.spawn_egg.entity.eoa:sow.name=Spawn Sow
+item.eoa:warthog_meat_raw.name=Warthog Raw Meat
+item.eoa:warthog_meat_cooked.name=Warthog Cooked Meat
+item.eoa:warthog_meat_raw=Warthog Raw Meat
+item.eoa:warthog_meat_cooked=Warthog Cooked Meat

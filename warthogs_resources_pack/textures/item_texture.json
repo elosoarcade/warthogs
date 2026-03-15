@@ -1,0 +1,10 @@
+{
+	"texture_data": {
+		"warthog_meat_raw": {
+			"textures": "textures/items/warthog_meat_raw.png"
+		},
+		"warthog_meat_cooked": {
+			"textures": "textures/items/warthog_meat_cooked.png"
+		}		
+	}
+}

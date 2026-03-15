@@ -1,0 +1,24 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Warthog (R)",
+		"description": "Add Warthogs to Bedrock by El Oso Arcade",
+		"uuid": "fee4e9cb-28fe-be28-12bf-7f7e992089c5",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 16, 0]
+	},
+	"metadata": {
+		"authors": ["El Oso Arcade"],
+		"license": "CC BY-NC-ND 4.0 - Warthogs MCBE Add-on",
+		"product_type": "addon",
+		"url": "https://github.com/elosoarcade/warthogs"
+	},
+	"modules": [
+		{
+			"description": "Warthog",
+			"type": "resources",
+			"uuid": "f4e02024-1c20-f052-6a4a-acc1ddc34192",
+			"version": [1, 0, 0]
+		}
+	]
+}

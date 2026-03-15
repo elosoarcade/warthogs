@@ -1,0 +1,11 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "eoa:warthog_meat_cooked"
+    },
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "eoa:warthog_meat_raw",
+    "output": "eoa:warthog_meat_cooked"
+  }
+}
