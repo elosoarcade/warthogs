@@ -15,3 +15,4 @@ Female: Normally flees from players from a great distance. However, if calves ar
 This addon is optimized to run effectively on Realms and dedicated servers with minimal hardware resource consumption and its available in english and español. 🇬🇧 🇲🇽
 
 ![Wharthog Minecraft Bedrock Add-on](https://media.forgecdn.net/attachments/1581/740/addon-cover_20260314_210455_0000-jpg.jpg)
+ 
