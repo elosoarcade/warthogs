@@ -1,31 +1,24 @@
 {
-  "format_version": "1.21.70",
+  "format_version": "1.26.10",
   "minecraft:entity": {
     "description": {
       "identifier": "eoa:warthog",
       "spawn_category": "creature",
       "is_spawnable": true,
-      "is_summonable": true,
-      "properties": {}
+      "is_summonable": true
     },
+
     "component_groups": {
       "eoa:warthog_baby": {
         "minecraft:is_baby": {},
         "minecraft:scale": {
-          "value": 0.26
+          "value": 0.35
         },
         "minecraft:ageable": {
           "duration": 120000,
-          "feed_items": [
-            {
-              "item": "beetroot",
-              "growth": 0.01
-            },
-            {
-              "item": "apple",
-              "growth": 0.01
-            }
-          ],
+          "feed_items": ["beetroot", "apple"],
+          "pause_growth_items": ["golden_dandelion"],
+          "reset_growth_items": ["golden_dandelion"],
           "grow_up": {
             "event": "minecraft:ageable_grow_up",
             "target": "self"
@@ -34,6 +27,35 @@
         "minecraft:behavior.follow_parent": {
           "priority": 5,
           "speed_multiplier": 1.1
+        },
+        "minecraft:on_target_acquired": {
+          "event": "eoa:on_scared",
+          "target": "self"
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 4,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "max_dist": 16
+            }
+          ]
+        }
+      },
+
+      "eoa:warthog_baby_scared": {
+        "minecraft:angry": {
+          "duration": 1,
+          "broadcast_anger": true,
+          "broadcast_range": 41,
+          "calm_event": {
+            "event": "eoa:baby_on_calm",
+            "target": "self"
+          }
         }
       },
 
@@ -45,6 +67,22 @@
         "minecraft:loot": {
           "table": "loot_tables/entities/warthog.json"
         },
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 150,
+              "max_wait_time": 300,
+              "spawn_sound": "plop",
+              "spawn_item": "eoa:manure",
+              "filters": {
+                "test": "rider_count",
+                "subject": "self",
+                "operator": "==",
+                "value": 0
+              }
+            }
+          ]
+        },        
         "minecraft:behavior.breed": {
           "priority": 6,
           "speed_multiplier": 1.0
@@ -52,81 +90,70 @@
         "minecraft:breedable": {
           "require_tame": false,
           "breeds_with": {
-            "mate_type": "eoa:sow",
-            "baby_type": "eoa:sow",
-            "breed_event": {
-              "event": "minecraft:entity_born",
-              "target": "baby"
-            }
+            "eoa:warthog": {}
           },
-          "breed_items": ["beetroot", "apple"],
-          "property_inheritance": {
-            "minecraft:climate_variant": {}
+          "breed_items": ["beetroot", "apple"]
+        }
+      },
+
+      "eoa:warthog_adult_wild": {
+        "minecraft:on_target_acquired": {
+          "event": "eoa:on_anger",
+          "target": "self"
+        },
+        "minecraft:on_friendly_anger": {
+          "event": "eoa:on_anger",
+          "target": "self"
+        }
+      },
+
+      "eoa:warthog_adult_hostile": {
+        "minecraft:attack": {
+          "damage": 3
+        },
+        "minecraft:angry": {
+          "duration": 500,
+          "broadcast_anger": false,
+          "broadcast_range": 20,
+          "calm_event": {
+            "event": "eoa:on_calm",
+            "target": "self"
           }
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 4,
+          "must_see": true,
+          "reselect_targets": true,
+          "within_radius": 16.0,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "max_dist": 16
+            }
+          ]
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 5
         }
       }
     },
 
     "components": {
+      "minecraft:offspring": {
+        "offspring_pairs": {
+          "eoa:warthog": "eoa:warthog"
+        }
+      },
       "minecraft:is_hidden_when_invisible": {},
       "minecraft:type_family": {
         "family": ["pig", "mob"]
       },
       "minecraft:scale": {
-        "value": 0.70
-      },
-
-      "minecraft:behavior.float": {
-        "priority": 1
-      },
-      "minecraft:behavior.panic": {
-        "priority": 2,
-        "speed_multiplier": 5.0
-      },
-      "minecraft:behavior.tempt": {
-        "priority": 3,
-        "speed_multiplier": 1.2,
-        "items": ["beetroot", "apple"],
-        "can_tempt_while_ridden": false
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 4,
-        "must_see": true,
-        "reselect_targets": true,
-        "within_radius": 12.0,
-        "entity_types": [
-          {
-            "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
-            },
-            "max_dist": 12
-          }
-        ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 5
-      },
-      "minecraft:behavior.breed": {
-        "priority": 6,
-        "speed_multiplier": 1.0
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 7,
-        "speed_multiplier": 1.0
-      },
-      "minecraft:behavior.look_at_player": {
-        "priority": 8,
-        "look_distance": 6.0,
-        "probability": 0.02
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 9
-      },
-
-      "minecraft:attack": {
-        "damage": 2
+        "value": 0.60
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -178,11 +205,50 @@
         "despawn_from_distance": {}
       },
       "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+
+      "minecraft:behavior.float": {
+        "priority": 1
       },
-      "minecraft:conditional_bandwidth_optimization": {}
+      "minecraft:behavior.panic": {
+        "priority": 2,
+        "speed_multiplier": 6.0
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 3,
+        "speed_multiplier": 1.2,
+        "items": ["beetroot", "apple"],
+        "can_tempt_while_ridden": false
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 4,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 64,
+            "walk_speed_multiplier": 1.0,
+            "sprint_speed_multiplier": 3.0
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      }
     },
 
     "events": {
@@ -191,11 +257,16 @@
           {
             "randomize": [
               {
-                "weight": 95,
-                "trigger": "minecraft:spawn_adult"
+                "weight": 67,
+                "add": {
+                  "component_groups": [
+                    "eoa:warthog_adult",
+                    "eoa:warthog_adult_wild"
+                  ]
+                }
               },
               {
-                "weight": 5,
+                "weight": 33,
                 "add": {
                   "component_groups": [
                     "eoa:warthog_baby"
@@ -217,19 +288,62 @@
       "minecraft:ageable_grow_up": {
         "remove": {
           "component_groups": [
+            "eoa:warthog_baby",
+            "eoa:warthog_baby_scared"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "eoa:warthog_adult",
+            "eoa:warthog_adult_wild"
+          ]
+        }
+      },
+      "eoa:on_anger": {
+        "remove": {
+          "component_groups": [
+            "eoa:warthog_adult_wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "eoa:warthog_adult_hostile"
+          ]
+        }
+      },
+      "eoa:on_calm": {
+        "remove": {
+          "component_groups": [
+            "eoa:warthog_adult_hostile"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "eoa:warthog_adult_wild"
+          ]
+        }
+      },
+      "eoa:on_scared": {
+        "remove": {
+          "component_groups": [
             "eoa:warthog_baby"
           ]
         },
         "add": {
           "component_groups": [
-            "eoa:warthog_adult"
+            "eoa:warthog_baby_scared"
           ]
         }
       },
-      "minecraft:spawn_adult": {
+      "eoa:baby_on_calm": {
+        "remove": {
+          "component_groups": [
+            "eoa:warthog_baby_scared"
+          ]
+        },
         "add": {
           "component_groups": [
-            "eoa:warthog_adult"
+            "eoa:warthog_baby"
           ]
         }
       }

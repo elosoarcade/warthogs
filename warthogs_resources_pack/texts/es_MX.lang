@@ -1,7 +1,5 @@
-entity.eoa:warthog.name=Jabalí macho
-entity.eoa:sow.name=Jabalí hembra
-item.spawn_egg.entity.eoa:warthog.name=Huevo generador de Jabalí macho
-item.spawn_egg.entity.eoa:sow.name=Huevo generador de Jabalí hembra
+entity.eoa:warthog.name=Jabalí
+item.spawn_egg.entity.eoa:warthog.name=Huevo generador de jabalí
 item.eoa:warthog_meat_raw.name=Carne de jabalí cruda
 item.eoa:warthog_meat_cooked.name=Carne de jabalí cocinada
 item.eoa:warthog_meat_raw=Carne de jabalí cruda
