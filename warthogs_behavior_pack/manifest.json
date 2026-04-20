@@ -4,7 +4,7 @@
 		"name": "Warthog (B)",
 		"description": "Add Warthogs to Bedrock by El Oso Arcade",
 		"uuid": "7433e78e-689a-3517-5509-86d28c514ee3",
-		"version": [2, 0, 0],
+		"version": [2, 1, 0],
 		"min_engine_version": [1, 16, 0]
 	},
 	"metadata": {
@@ -16,7 +16,7 @@
 	"modules": [
 		{
 			"description": "Behavior",
-			"version": [2, 0, 0],
+			"version": [2, 1, 0],
 			"uuid": "684a59de-4c82-e092-3d2a-7eab6b87d556",
 			"type": "data"
 		}
@@ -24,7 +24,7 @@
 	"dependencies": [
 		{
 			"uuid": "fee4e9cb-28fe-be28-12bf-7f7e992089c5",
-			"version": [2, 0, 0]
+			"version": [2, 1, 0]
 		}
 	]
 }
